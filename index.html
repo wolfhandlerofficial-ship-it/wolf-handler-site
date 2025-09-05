@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wolf Handler — Creative Studio</title>
+  <meta name="theme-color" content="#0b0b10" />
+  <link rel="icon" href="logo.png" type="image/png" />
+  <meta name="description" content="Wolf Handler — Posters, video editing, PDFs for corporates. Hire a hungry creative pack." />
+  <meta property="og:title" content="Wolf Handler — Creative Studio" />
+  <meta property="og:description" content="Posters, reels, motion edits, and corporate PDFs. Hire a hungry creative pack." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0b10; --panel:#11121a; --ink:#e8e8ee; --muted:#a9aec6; --brand:#b2f200; --brand-2:#00c8ff; --card:#141623; --glow:0 0 24px rgba(178,242,0,.35);
+      /* Eye glow placement defaults (tweak to match your logo art) */
+      --eyeX:68%; --eyeY:40%; --eyeSize:110px; --eyeColor:rgba(0,200,255,1);
+    }
+    *{box-sizing:border-box} html,body{margin:0;height:100%;scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:radial-gradient(1200px 800px at 80% -10%,rgba(138,230,255,.15),transparent),radial-gradient(900px 700px at -20% 10%,rgba(178,242,0,.08),transparent),var(--bg);color:var(--ink)}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:1100px;margin:0 auto;padding:0 20px}
+    .nav{position:sticky;top:0;z-index:20;background:linear-gradient(180deg,rgba(11,11,16,.85),rgba(11,11,16,.55) 70%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+    .logo{display:flex;gap:10px;align-items:center;font-weight:800;letter-spacing:.5px}
+    .logo-img{width:38px;height:38px;object-fit:contain;filter:drop-shadow(0 3px 12px rgba(0,200,255,.35));border-radius:8px;background:rgba(255,255,255,.02);border:1px solid rgba(255,255,255,.06)}
+    .nav-links{display:flex;gap:18px}
+    .nav-links a{padding:8px 12px;border-radius:10px;color:var(--muted)}
+    .nav-links a:hover{background:rgba(255,255,255,.06);color:var(--ink)}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:12px 16px;border-radius:12px;background:linear-gradient(100deg,var(--brand),#d8ff76);color:#0b0b10;font-weight:700;border:0;cursor:pointer;box-shadow:0 6px 22px rgba(178,242,0,.35)}
+    .btn.secondary{background:linear-gradient(100deg,var(--brand-2),#e1fbff);box-shadow:0 6px 22px rgba(138,230,255,.35)}
+
+    /* HERO */
+    .hero{padding:64px 0 32px}
+    .hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;align-items:center}
+    .hero h1{font-size:44px;line-height:1.05;margin:0 0 10px}
+    .hero p{color:var(--muted);margin:0 0 18px}
+    .pill{display:inline-flex;gap:8px;align-items:center;padding:8px 12px;border:1px solid rgba(255,255,255,.08);border-radius:999px;color:var(--muted);background:rgba(255,255,255,.04)}
+    .card{background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(255,255,255,.02));border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px}
+    .mock{aspect-ratio:4/3;border-radius:16px;background:radial-gradient(300px 220px at 30% 20%,rgba(138,230,255,.3),transparent),radial-gradient(320px 220px at 70% 60%,rgba(178,242,0,.25),transparent),linear-gradient(180deg,#141623,#0f1120);position:relative;overflow:hidden;isolation:isolate}
+    .tag{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);padding:6px 10px;border-radius:10px;font-size:12px;color:var(--muted)}
+    .orbit{position:absolute;inset:0;display:grid;place-items:center}
+    .orbit .ring{width:72%;height:72%;border:1px dashed rgba(255,255,255,.12);border-radius:999px;position:absolute;animation:spin 20s linear infinite}
+    .orbit .ring:nth-child(2){width:58%;height:58%;animation-duration:12s}
+    .orbit .ring:nth-child(3){width:36%;height:36%;animation-duration:8s}
+    .orbit .planet{width:62px;height:62px;border-radius:50%;background:linear-gradient(135deg,var(--brand-2),#bfefff);box-shadow:0 10px 40px rgba(138,230,255,.45);position:absolute;transform:translateY(-50%);top:18%;left:12%}
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    /* SECTIONS */
+    section{padding:64px 0}
+    h2{font-size:28px;margin:0 0 8px}
+    .muted{color:var(--muted)}
+    .grid{display:grid;gap:18px}
+    .grid.cols-3{grid-template-columns:repeat(3,1fr)}
+    .grid.cols-2{grid-template-columns:repeat(2,1fr)}
+    @media (max-width:880px){.hero-grid{grid-template-columns:1fr}.grid.cols-3{grid-template-columns:1fr}.grid.cols-2{grid-template-columns:1fr}}
+
+    .service{padding:18px;border-radius:16px;background:var(--card);border:1px solid rgba(255,255,255,.06)}
+    .service h3{margin:6px 0 6px}
+    .service p{margin:0;color:var(--muted)}
+    .i{width:40px;height:40px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,rgba(138,230,255,.25),rgba(178,242,0,.25));border:1px solid rgba(255,255,255,.12)}
+
+    .gallery{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+    .shot{aspect-ratio:1;border-radius:14px;background:linear-gradient(180deg,#171a2b,#0d0f1b);border:1px solid rgba(255,255,255,.08);position:relative;overflow:hidden}
+    .shot small{position:absolute;bottom:8px;left:8px;color:#cfd6ff;background:rgba(255,255,255,.06);padding:6px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.12)}
+    @media(max-width:880px){.gallery{grid-template-columns:repeat(3,1fr)}}
+
+    .price{padding:22px;border-radius:18px;background:linear-gradient(180deg,#131625,#0f1120);border:1px solid rgba(255,255,255,.08)}
+    .price h3{margin:0 0 8px}
+    .price ul{list-style:none;padding:0;margin:10px 0 0;color:var(--muted)}
+    .price li{margin:8px 0}
+
+    .cta{display:flex;gap:12px;flex-wrap:wrap}
+
+    .contact form{display:grid;gap:10px}
+    .input{padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:#0f1120;color:var(--ink)}
+    .footer{padding:26px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted)}
+
+    /* LOGO IN HERO + EYE GLOW */
+    .logo-stage{position:absolute;inset:0;display:grid;place-items:center;pointer-events:none;z-index:2}
+    .hero-logo{width:60%;height:auto;max-width:520px;filter:drop-shadow(0 12px 30px rgba(0,200,255,.16));opacity:.98}
+    .eye-glow{position:absolute;left:var(--eyeX);top:var(--eyeY);width:var(--eyeSize);height:var(--eyeSize);transform:translate(-50%,-50%);border-radius:999px;background:radial-gradient(circle at center, rgba(0,200,255,.9), rgba(0,200,255,.45) 40%, rgba(0,200,255,.05) 70%, transparent 80%);mix-blend-mode:screen;filter:blur(4px);animation:pulse 3.2s ease-in-out infinite}
+    @keyframes pulse{0%{opacity:.55;transform:translate(-50%,-50%) scale(.9)}50%{opacity:1;transform:translate(-50%,-50%) scale(1.05)}100%{opacity:.55;transform:translate(-50%,-50%) scale(.9)}}
+  </style>
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a href="#top" class="logo">
+        <img src="logo.png" alt="Wolf Handler logo" class="logo-img" />
+        <span>WOLF HANDLER</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#work">Work</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+        <a href="#contact" class="btn" style="padding:8px 12px">Hire us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="pill">⚡ Hungry creative pack for brands</span>
+        <h1>We edit. We design. We ship fast.</h1>
+        <p>Wolf Handler is a studio for posters, reels, motion edits, and corporate PDFs. Built for creators and startups that want speed without losing style.</p>
+        <div class="cta">
+          <a class="btn" href="#contact">Get a quote</a>
+          <a class="btn secondary" href="#work">See our work</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="mock">
+          <span class="tag">Mini preview</span>
+          <div class="orbit">
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="ring"></div>
+            <div class="planet"></div>
+          </div>
+          <div class="logo-stage">
+            <img src="logo.png" alt="Wolf Handler logo large" class="hero-logo" />
+            <span class="eye-glow"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section id="services">
+    <div class="container">
+      <h2>Services</h2>
+      <p class="muted">Everything you need to launch and grow.</p>
+      <div class="grid cols-3" style="margin-top:14px">
+        <div class="service">
+          <div class="i">🎬</div>
+          <h3>Video Editing</h3>
+          <p>Shorts, reels, promos, cinematic cuts, captions, sound design.</p>
+        </div>
+        <div class="service">
+          <div class="i">🖼️</div>
+          <h3>Poster Design</h3>
+          <p>Instagram carousels, product launches, event flyers, ad creatives.</p>
+        </div>
+        <div class="service">
+          <div class="i">📄</div>
+          <h3>Corporate PDFs</h3>
+          <p>Company profiles, pitch decks, rate cards, policy docs—clean and branded.</p>
+        </div>
+        <div class="service">
+          <div class="i">🎨</div>
+          <h3>Brand Kits</h3>
+          <p>Logos, color systems, typography, social templates.</p>
+        </div>
+        <div class="service">
+          <div class="i">🚀</div>
+          <h3>Social Boost</h3>
+          <p>Content calendars, hooks, CTAs, hashtag sets tuned per niche.</p>
+        </div>
+        <div class="service">
+          <div class="i">🛠️</div>
+          <h3>Custom Requests</h3>
+          <p>Have a wild idea? We’ll build it with you end‑to‑end.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="work">
+    <div class="container">
+      <h2>Recent Work</h2>
+      <p class="muted">Drop your best 6–12 shots here. Replace placeholders with real thumbnails.</p>
+      <div class="gallery" style="margin-top:14px">
+        <div class="shot"><small>Poster — Launch</small></div>
+        <div class="shot"><small>Reel — Promo</small></div>
+        <div class="shot"><small>PDF — Profile</small></div>
+        <div class="shot"><small>Carousel — Tips</small></div>
+        <div class="shot"><small>Reel — Cinematic</small></div>
+        <div class="shot"><small>Poster — Event</small></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing">
+    <div class="container">
+      <h2>Pricing</h2>
+      <p class="muted">Transparent starter packs. Custom quotes for larger scopes.</p>
+      <div class="grid cols-3" style="margin-top:14px">
+        <div class="price">
+          <h3>Starter</h3>
+          <p><strong>₹2,499</strong> / project</p>
+          <ul>
+            <li>1 poster or 1 short reel</li>
+            <li>1 round of revisions</li>
+            <li>48–72h delivery</li>
+          </ul>
+        </div>
+        <div class="price">
+          <h3>Creator</h3>
+          <p><strong>₹6,999</strong> / bundle</p>
+          <ul>
+            <li>4 posters + 2 reels</li>
+            <li>Priority edits</li>
+            <li>Brand color & fonts applied</li>
+          </ul>
+        </div>
+        <div class="price">
+          <h3>Business</h3>
+          <p><strong>₹14,999</strong> / month</p>
+          <ul>
+            <li>8 creatives + 4 reels</li>
+            <li>1 corporate PDF</li>
+            <li>Weekly content plan</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p class="muted">Tell us what you need. We reply fast.</p>
+      <div class="grid cols-2" style="margin-top:14px">
+        <form onsubmit="return sendMail(event)" class="card">
+          <input class="input" type="text" id="name" placeholder="Your name" required>
+          <input class="input" type="email" id="email" placeholder="Email" required>
+          <input class="input" type="text" id="need" placeholder="What do you need? (e.g., 3 posters + 1 reel)" required>
+          <textarea class="input" id="details" rows="5" placeholder="Any references, deadlines, vibes…"></textarea>
+          <button class="btn" type="submit">Send brief</button>
+        </form>
+        <div class="card">
+          <h3 style="margin:0 0 6px">Why Wolf Handler?</h3>
+          <ul style="margin:0 0 12px;color:var(--muted)">
+            <li>Speed + quality balance</li>
+            <li>Clean, modern aesthetics</li>
+            <li>Clear revision policy</li>
+          </ul>
+          <div class="pill" style="margin-bottom:8px">📍 India • Remote worldwide</div>
+          <div class="pill">🕒 Mon–Sat • 10:00–20:00 IST</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap">
+      <div>© <span id="year"></span> Wolf Handler</div>
+      <a class="pill" href="mailto:wolfhandlerofficial@gmail.com">wolfhandlerofficial@gmail.com</a>
+    </div>
+  </footer>
+
+  <script>
+    const y = document.getElementById('year'); y.textContent = new Date().getFullYear();
+    function sendMail(e){
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value);
+      const email = encodeURIComponent(document.getElementById('email').value);
+      const need = encodeURIComponent(document.getElementById('need').value);
+      const details = encodeURIComponent(document.getElementById('details').value);
+      const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0ANeed: ${need}%0D%0ADetails:%0D%0A${details}`;
+      window.location.href = `mailto:wolfhandlerofficial@gmail.com?subject=New Project — ${need}&body=${body}`;
+      return false;
+    }
+  </script>
+</body>
+</html>
